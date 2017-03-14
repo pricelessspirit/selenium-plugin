@@ -19,6 +19,7 @@
 		<selenium.version>3.1.0</selenium.version>
 		<htmlunit.version>2.20</htmlunit.version>
 		<java.level>8</java.level>
+		<sterodium.version>0.6</sterodium.version>
 	</properties>
 	<artifactId>selenium</artifactId>
 	<version>3.1.1-SNAPSHOT</version>
@@ -89,6 +90,11 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server-standalone</artifactId>
 			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.sterodium</groupId>
+			<artifactId>extension-proxy</artifactId>
+			<version>${sterodium.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

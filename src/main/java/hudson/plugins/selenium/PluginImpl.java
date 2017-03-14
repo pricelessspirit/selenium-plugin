@@ -179,6 +179,10 @@ public class PluginImpl extends Plugin implements Action, Serializable, Describa
         this.listener.getLogger().println("Starting Selenium Grid");
 
         List<String> args = new ArrayList<>();
+
+        args.add("-servlets");
+        args.add("io.sterodium.extensions.hub.proxy.HubRequestsProxyingServlet");
+
         if (getNewSessionWaitTimeout() != null && getNewSessionWaitTimeout() >= 0) {
             args.add("-newSessionWaitTimeout");
             args.add(getNewSessionWaitTimeout().toString());
@@ -195,6 +199,10 @@ public class PluginImpl extends Plugin implements Action, Serializable, Describa
             args.add("-browserTimeout");
             args.add(getBrowserTimeout().toString());
         }
+
+        args.add("-capabilityMatcher");
+        args.add("io.sterodium.extensions.capability.CustomCapabilityMatcher");
+
         if (getThrowOnCapabilityNotPresent()) {
             args.add("-throwOnCapabilityNotPresent");
             args.add(Boolean.toString(getThrowOnCapabilityNotPresent()));

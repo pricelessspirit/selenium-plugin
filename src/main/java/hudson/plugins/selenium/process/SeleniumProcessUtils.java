@@ -12,6 +12,7 @@ import hudson.remoting.*;
 import hudson.slaves.Channels;
 import hudson.util.ClasspathBuilder;
 import hudson.util.JVMBuilder;
+import io.sterodium.extensions.hub.proxy.HubRequestsProxyingServlet;
 import jenkins.model.Jenkins;
 import org.openqa.grid.selenium.GridLauncherV3;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -50,6 +51,13 @@ public final class SeleniumProcessUtils {
     }
 
     /**
+     * Locate the htmlunit driver jar from the classpath. Only works on the master.
+     */
+    public static File findExtensionProxyJar() throws IOException {
+        return Which.jarFile(HubRequestsProxyingServlet.class);
+    }
+
+    /**
      * Launches Hub in a separate JVM.
      *
      */
@@ -57,7 +65,7 @@ public final class SeleniumProcessUtils {
         JVMBuilder vmb = new JVMBuilder();
         vmb.systemProperties(null);
         return Channels.newJVM("Selenium Grid", listener, vmb, new FilePath(Jenkins.getInstance().getRootDir()),
-                new ClasspathBuilder().add(findStandAloneServerJar()).add(findHtmlUnitDriverJar()));
+                new ClasspathBuilder().add(findStandAloneServerJar()).add(findHtmlUnitDriverJar()).add(findExtensionProxyJar()));
     }
 
     /**

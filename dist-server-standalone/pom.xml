@@ -13,6 +13,7 @@
     <properties>
         <selenium.short.version>3.1</selenium.short.version>
         <selenium.version>3.1.0</selenium.version>
+        <sterodium.version>0.6</sterodium.version>
         <htmlunit.driver.version>2.20</htmlunit.driver.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -38,6 +39,11 @@
                                 />
                                 <get src="https://github.com/SeleniumHQ/htmlunit-driver/releases/download/${htmlunit.driver.version}/htmlunit-driver-standalone-${htmlunit.driver.version}.jar"
                                      dest="${project.build.directory}/htmlunit-driver-standalone-${htmlunit.driver.version}.jar"
+                                     verbose="on"
+                                     usetimestamp="true"
+                                />
+                                <get src="https://repo1.maven.org/maven2/io/sterodium/extension-proxy/${sterodium.version}/extension-proxy-${sterodium.version}.jar"
+                                     dest="${project.build.directory}/extension-proxy-${sterodium.version}.jar"
                                      verbose="on"
                                      usetimestamp="true"
                                 />
@@ -78,6 +84,22 @@
                             <groupId>org.seleniumhq.selenium</groupId>
                             <artifactId>htmlunit-driver-standalone</artifactId>
                             <version>${htmlunit.driver.version}</version>
+                            <packaging>jar</packaging>
+
+                            <localRepositoryPath>local_m2</localRepositoryPath>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>extension-proxy</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>${project.build.directory}/extension-proxy-${sterodium.version}.jar</file>
+                            <groupId>io.sterodium</groupId>
+                            <artifactId>extension-proxy</artifactId>
+                            <version>${sterodium.version}</version>
                             <packaging>jar</packaging>
 
                             <localRepositoryPath>local_m2</localRepositoryPath>
