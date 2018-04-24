@@ -16,9 +16,9 @@
         <findbugs.failOnError>false</findbugs.failOnError>
 
 		<selenium.version>3.11.0</selenium.version>
-		<htmlunit.version>2.29.2</htmlunit.version>
+		<htmlunit.version>2.30.0</htmlunit.version>
 		<java.level>8</java.level>
-		<sterodium.version>0.6</sterodium.version>
+		<sterodium.version>1.1-SNAPSHOT</sterodium.version>
 	</properties>
 	<artifactId>selenium</artifactId>
 	<version>3.11.0-SNAPSHOT</version>

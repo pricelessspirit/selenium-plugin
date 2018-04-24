@@ -13,8 +13,8 @@
     <properties>
         <selenium.short.version>3.11</selenium.short.version>
         <selenium.version>3.11.0</selenium.version>
-        <htmlunit.driver.version>2.29.2</htmlunit.driver.version>
-        <sterodium.version>0.6</sterodium.version>
+        <htmlunit.driver.version>2.30.0</htmlunit.driver.version>
+        <sterodium.version>1.1-SNAPSHOT</sterodium.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -42,7 +42,7 @@
                                      verbose="on"
                                      usetimestamp="true"
                                 />
-                                <get src="https://repo1.maven.org/maven2/io/sterodium/extension-proxy/${sterodium.version}/extension-proxy-${sterodium.version}.jar"
+                                <get src="file:///c:\\downloads\\${sterodium.version}\\extension-proxy-${sterodium.version}.jar"
                                      dest="${project.build.directory}/extension-proxy-${sterodium.version}.jar"
                                      verbose="on"
                                      usetimestamp="true"
